@@ -1,9 +1,15 @@
 pipeline {
   agent any
+  tools {
+    maven 'maven-3.3.9'
+    jdk 'jdk1.8.0_151'
+  }
   stages {
     stage('Build'){
       steps {
         echo 'Buildding...'
+        echo "PATH = ${PATH}"
+        echo "M2_HOME = ${M2_HOME}"
       }
     }
     stage('Test'){
