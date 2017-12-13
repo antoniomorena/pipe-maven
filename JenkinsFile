@@ -22,6 +22,12 @@ pipeline {
       steps {
         echo 'Deploy...'
     }
-  } 
+  }
+    post {
+    always {
+      archive "target/**/*"
+      junit 'target/surefile-reports/*.xml'
+      }
+    }
  }
 }
